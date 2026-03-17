@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Chhavi 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #ffd6e0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    animation: fadeUp 1s ease;
+}
+
+h1 { font-size: 2.2rem; }
+p { font-size: 1.05rem; line-height: 1.6; }
+
+button {
+    margin-top: 15px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    background: #ff8fab;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover { background: #ff6f91; transform: scale(1.05); }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animal {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+/* floating sorry */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 14px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* flying cats */
+.cat {
+    position: fixed;
+    bottom: -50px;
+    width: 50px;
+    animation: floatCat linear infinite;
+}
+
+@keyframes floatCat {
+    0% { transform: translateY(0); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateY(-120vh) translateX(50px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+/* floating sorry */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "sorry 💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random()*3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart, 500);
+
+/* flying cats */
+function createCat() {
+    const cat = document.createElement("img");
+    cat.src = "https://media.tenor.com/4xQk2w0G5g0AAAAi/crying-cat.gif";
+    cat.classList.add("cat");
+    cat.style.left = Math.random()*100 + "vw";
+    cat.style.animationDuration = (5 + Math.random()*4) + "s";
+    document.body.appendChild(cat);
+    setTimeout(()=>cat.remove(),9000);
+}
+setInterval(createCat, 2500);
+
+/* forgiveness logic */
+let attempts = 0;
+
+function forgive(answer) {
+    const response = document.getElementById("response");
+    const noBtn = document.getElementById("noBtn");
+
+    if (answer) {
+        response.innerHTML = "Thank you, Chhavi… that really means a lot 💗";
+        setTimeout(()=>{ location.href="#p8"; }, 1200);
+    } else {
+        attempts++;
+
+        if (attempts === 1) {
+            response.innerHTML = "Are you sure? I really didn’t mean to hurt you 🥺";
+        } else if (attempts === 2) {
+            response.innerHTML = "Please? I’ll genuinely do better this time 💗";
+        } else if (attempts === 3) {
+            response.innerHTML = "Okay… I understand. I’ll respect how you feel.";
+            noBtn.disabled = true;
+            noBtn.style.opacity = "0.5";
+        }
+    }
+}
+</script>
+
+<section>
+<div class="card">
+<img class="animal" src="https://media.tenor.com/9Y1Z3pK2F3UAAAAi/cute-panda.gif">
+<h1>Chhavi, I messed up.</h1>
+<p>I didn’t want to disappoint you… but I did.</p>
+<a href="#p2"><button>Hear me out 💗</button></a>
+</div>
+</section>
+
+<section id="p2">
+<div class="card">
+<h1>No excuses</h1>
+<p>I was joking around and didn’t think before speaking, Chhavi.</p>
+<a href="#p3"><button>Next</button></a>
+</div>
+</section>
+
+<section id="p3">
+<div class="card">
+<h1>And I regret it</h1>
+<p>It wasn’t kind. It wasn’t fair. And I hate that I hurt you.</p>
+<a href="#p4"><button>Next</button></a>
+</div>
+</section>
+
+<section id="p4">
+<div class="card">
+<img class="animal" src="https://media.tenor.com/2roX3uxz_68AAAAi/sad-bear.gif">
+<h1>The truth?</h1>
+<p>You saw something nice… and I should’ve respected that.</p>
+<a href="#p5"><button>Next</button></a>
+</div>
+</section>
+
+<section id="p5">
+<div class="card">
+<h1>Something honest</h1>
+<p>It caught me off guard, and I handled it badly.</p>
+<a href="#p6"><button>Next</button></a>
+</div>
+</section>
+
+<section id="p6">
+<div class="card">
+<img class="animal" src="https://media.tenor.com/3XbG1b1X8n0AAAAi/crying-bear.gif">
+<h1>I’m really sorry, Chhavi 💗</h1>
+<p>
+I didn’t want to hurt you.<br>
+I didn’t want to disappoint you.
+</p>
+<a href="#p7"><button>Last thing</button></a>
+</div>
+</section>
+
+<section id="p7">
+<div class="card">
+<h1>One last thing, Chhavi 💗</h1>
+<p>Can you forgive me?</p>
+
+<button onclick="forgive(true)">Yes 🥺</button>
+<button onclick="forgive(false)" id="noBtn">No 😔</button>
+
+<p id="response" style="margin-top:20px;"></p>
+</div>
+</section>
+
+<section id="p8">
+<div class="card">
+<h1>Just one last thing, Chhavi</h1>
+
+<p>
+I meant what I said here.<br><br>
+Not just the apology… but the part where I said I’ll do better.<br><br>
+You matter to me, and I hate that I made you feel otherwise.
+</p>
+
+<p style="margin-top:20px;">
+Whatever you feel is completely valid.<br>
+I’ll respect it.
+</p>
+
+<p style="margin-top:25px; font-weight: 500;">
+Take care of yourself, okay? 💗
+</p>
+
+<button onclick="alert('Still rooting for your smile, Chhavi 🤍')">
+Bye for now
+</button>
+</div>
+</section>
+
+</body>
+</html>
